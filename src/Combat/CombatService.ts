@@ -1,6 +1,8 @@
-import { Character } from 'src/Contracts/Character';
+import { Character } from '../Contracts/Character';
 import { IInitiativePass } from './IInitiativePass';
 import { InitiativePassFactory } from './InitiativePassFactory';
+import { ICombatAction } from './ICombatAction';
+import { InitiativePassSlot } from './Contracts/InititiativePassSlot';
 
 export class CombatService<T extends IInitiativePass> {
 
@@ -29,5 +31,9 @@ export class CombatService<T extends IInitiativePass> {
             }
         }
         return this.currentInitiativePass.next();
+    }
+
+    public performAction(character : InitiativePassSlot,  action: ICombatAction) {
+        action.performAction(character);
     }
 }
