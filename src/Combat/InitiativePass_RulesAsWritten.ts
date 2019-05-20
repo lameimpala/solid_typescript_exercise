@@ -3,7 +3,7 @@ import { InitiativePassSlot } from './Contracts/InititiativePassSlot';
 
 export class InitiativePass_RulesAsWritten extends InitiativePass {
     next() {
-        let sortedArray = this.initiativeOrder.sort((a: InitiativePassSlot, b:InitiativePassSlot) => {
+        let sortedArray = [...this.initiativeOrder].sort((a: InitiativePassSlot, b:InitiativePassSlot) => {
             if (a.currentInitiative < b.currentInitiative) {
                 return 1;
             }

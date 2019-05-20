@@ -4,7 +4,7 @@ import { InitiativePass } from './InitiativePass';
 // tslint:disable-next-line:class-name
 export class InitiativePass_HouseRule_SubtractInitiativeImmediatelyUponAction extends InitiativePass {
     public next() {
-        const sortedArray = this.initiativeOrder.sort((a: InitiativePassSlot, b:InitiativePassSlot) => {
+        const sortedArray = [...this.initiativeOrder].sort((a: InitiativePassSlot, b:InitiativePassSlot) => {
             if (a.currentInitiative < b.currentInitiative) {
                 return 1;
             }
